@@ -21,7 +21,7 @@ Set-Location .\worker
 npm run deploy
 ```
 
-デプロイ後、`pages/index.html`のWorker URL入力欄へ発行された`https://<worker-name>.<subdomain>.workers.dev`を設定します。Pagesの公開URLが確定したら、`worker/wrangler.toml`の`ALLOWED_ORIGIN`をPagesドメインへ変更して再デプロイしてください。
+本番Worker URLは`https://it11-nakamura-workerss.nhs60505.workers.dev`です。Pagesの公開URLが確定したら、`worker/wrangler.toml`の`ALLOWED_ORIGIN`をPagesドメインへ変更して再デプロイしてください。
 
 ## API
 

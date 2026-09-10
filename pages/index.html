@@ -73,7 +73,7 @@
 
     <form class="toolbar" id="settings-form">
         <label for="base-url">Worker URL</label>
-        <input id="base-url" type="url" value="http://127.0.0.1:8787" placeholder="https://your-worker.workers.dev" required>
+        <input id="base-url" type="url" value="https://it11-nakamura-workerss.nhs60505.workers.dev" placeholder="https://your-worker.workers.dev" required>
         <button type="submit">接続先を保存</button>
     </form>
     <p class="status" id="status" role="status">接続先を確認してください。</p>
@@ -109,8 +109,10 @@
 <script>
     const baseUrlInput = document.querySelector('#base-url');
     const status = document.querySelector('#status');
+    const productionUrl = 'https://it11-nakamura-workerss.nhs60505.workers.dev';
     const savedUrl = localStorage.getItem('worker-base-url');
-    if (savedUrl) baseUrlInput.value = savedUrl;
+    if (savedUrl && !savedUrl.includes('127.0.0.1:8787')) baseUrlInput.value = savedUrl;
+    else localStorage.setItem('worker-base-url', productionUrl);
 
     function apiUrl(path) {
         return `${baseUrlInput.value.replace(/\/$/, '')}/api${path ? `/${path}` : ''}`;
